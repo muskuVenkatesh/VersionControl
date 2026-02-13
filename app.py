@@ -78,6 +78,21 @@ def submit():
     except Exception as e:
         return render_template('index.html', error=str(e), form=doc)
 
+@app.route('/submittodoitem', methods=['POST'])
+def submit_todo():
+    name = request.form.get('itemName')
+    description = request.form.get('itemDescription')
+    data = {'name': name, 'description': description}
+    db, err = get_db()
+    if err:
+        return jsonify({'error': err}), 500
+    try:
+        coll = db['todo_items']
+        coll.insert_one(data)
+        return {"status": "saved"}
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 
 @app.route('/success')
 def success():
