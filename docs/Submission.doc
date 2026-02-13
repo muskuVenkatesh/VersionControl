@@ -1,0 +1,21 @@
+<html>
+<body>
+<h1>Flask App Submission</h1>
+<h2>What I built</h2>
+<p>A small Flask application exposing an <code>/api</code> route that returns JSON read from a backend file, and a front-end form that inserts form submissions into MongoDB Atlas.</p>
+<h2>How to run (commands)</h2>
+<pre>
+cd C:\Users\DELL\flask_app\App
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+copy .env.example .env
+# Edit .env and set MONGO_URI to your MongoDB Atlas URI
+python app.py
+
+# Visit http://127.0.0.1:5000/ to see the form
+# Visit http://127.0.0.1:5000/api to see JSON list
+ </pre>
+
+</body>
+</html>

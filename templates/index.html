@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Submit Data</title>
+  </head>
+  <body>
+    <h1>Submit Data to MongoDB Atlas</h1>
+
+    {% if error %}
+      <div style="color: red;">Error: {{ error }}</div>
+    {% endif %}
+
+    <form action="/submit" method="post">
+      <label>Name: <input type="text" name="name" value="{{ form.name if form }}"></label><br>
+      <label>Email: <input type="email" name="email" value="{{ form.email if form }}"></label><br>
+      <label>Message: <textarea name="message">{{ form.message if form }}</textarea></label><br>
+      <button type="submit">Submit</button>
+    </form>
+
+    <p>View MongoDB submissions API: <a href="/api">/api</a></p>
+  </body>
+</html>
